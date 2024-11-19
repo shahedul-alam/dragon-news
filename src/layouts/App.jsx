@@ -1,10 +1,11 @@
+import HomeHeader from "../components/HomeHeader"
 
 
 function App() {
 
   return (
     <>
-      <h1 className="font-poppins">my app</h1>
+      <HomeHeader />
     </>
   )
 }
