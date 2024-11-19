@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import HomeLeftAside from "../../components/HomeLeftAside";
-import HomeMain from "../../components/HomeMain";
-import HomeRightAside from "../../components/HomeRightAside";
+import HomeLeftAside from "./HomeLeftAside";
+import HomeMain from "./HomeMain";
+import HomeRightAside from "./HomeRightAside";
 
 
 const Homepage = () => {
@@ -14,7 +14,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <main className="border border-red-600 container mx-auto grid grid-cols-12 gap-6">
+    <main className="container mx-auto grid grid-cols-12 gap-6">
       <HomeLeftAside categoriesData={categoriesData} />
       <HomeMain />
       <HomeRightAside />
