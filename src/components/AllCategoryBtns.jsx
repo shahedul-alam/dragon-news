@@ -12,11 +12,16 @@ const CategoryBtns = ({ category }) => {
 
 const AllCategoryBtns = ({ categoriesData }) => {
   return (
-    <div className="flex flex-col category-btn-container mb-5">
-      {categoriesData.map((category) => (
-        <CategoryBtns key={category.category_id} category={category} />
-      ))}
-    </div>
+    <>
+      <h2 className="text-xl text-[#403F3F] font-semibold mb-5">
+        All Category
+      </h2>
+      <div className="flex flex-col category-btn-container mb-5">
+        {categoriesData.map((category) => (
+          <CategoryBtns key={category.category_id} category={category} />
+        ))}
+      </div>
+    </>
   );
 };
 

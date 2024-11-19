@@ -1,14 +1,18 @@
 import AllCategoryBtns from "../../components/AllCategoryBtns";
 import AsideSportsNews from "../../components/AsideSportsNews";
+import { useEffect, useState } from "react";
 
-const HomeLeftAside = ({categoriesData}) => {
+const HomeLeftAside = () => {
+  const [categoriesData, setCategoriesData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://openapi.programming-hero.com/api/news/categories")
+      .then((res) => res.json())
+      .then((data) => setCategoriesData(data.data.news_category));
+  }, []);
 
   return (
     <aside className="col-span-3">
-      <h2 className="text-xl text-[#403F3F] font-semibold mb-5">
-        All Category
-      </h2>
-
       <AllCategoryBtns categoriesData={categoriesData} />
       <AsideSportsNews />
     </aside>
