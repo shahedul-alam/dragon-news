@@ -17,6 +17,7 @@ const Router = () => {
         },
         {
           path: 'category/:id',
+          loader: ({ params }) => fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`),
           element: <Homepage />,
         },
         {

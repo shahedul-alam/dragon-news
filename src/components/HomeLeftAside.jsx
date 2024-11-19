@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useLoaderData, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const CategoryBtns = ({ category }) => {
   return (
@@ -11,21 +10,15 @@ const CategoryBtns = ({ category }) => {
   );
 };
 
-const HomeLeftAside = () => {
-  const [categoriesData, setCategoriesData] = useState([]);
-
-  useEffect(() => {
-    fetch("https://openapi.programming-hero.com/api/news/categories")
-      .then((res) => res.json())
-      .then((data) => setCategoriesData(data.data.news_category));
-  }, []);
+const HomeLeftAside = ({categoriesData}) => {
+  console.log('left aside');
 
   return (
     <aside className="border border-blue-600 col-span-3">
       <h2 className="text-xl text-[#403F3F] font-semibold mb-5">
         All Category
       </h2>
-      <div className="flex flex-col category-btn-container">
+      <div className="flex flex-col category-btn-container border">
         {categoriesData.map((category) => (
           <CategoryBtns key={category.category_id} category={category} />
         ))}
