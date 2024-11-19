@@ -1,10 +1,12 @@
+import FindUsOn from "../../components/FindUsOn";
 import LoginWith from "../../components/LoginWith";
 
 
 const HomeRightAside = () => {
   return (
-    <div className="border border-green-600 col-span-3">
+    <div className="col-span-3">
       <LoginWith />
+      <FindUsOn />
     </div>
   );
 };
