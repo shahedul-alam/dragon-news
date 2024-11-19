@@ -1,6 +1,6 @@
-import HomeHeaderDetails from "./HomeHeaderDetails";
-import HomeHeaderMarquee from "./HomeHeaderMarquee";
-import Navbar from "./Navbar";
+import HomeHeaderDetails from "../../components/HomeHeaderDetails";
+import HomeHeaderMarquee from "../../components/HomeHeaderMarquee";
+import Navbar from "../../components/Navbar";
 
 const HomeHeader = () => {
   return (

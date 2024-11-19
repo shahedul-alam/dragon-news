@@ -15,6 +15,6 @@ const HomeHeaderDetails = () => {
       </p>
     </section>
   );
-};
+}; 
 
 export default HomeHeaderDetails;
