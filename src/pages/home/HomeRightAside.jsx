@@ -1,3 +1,4 @@
+import AsideAdvertisement from "../../components/AsideAdvertisement";
 import FindUsOn from "../../components/FindUsOn";
 import LoginWith from "../../components/LoginWith";
 
@@ -7,6 +8,7 @@ const HomeRightAside = () => {
     <div className="col-span-3">
       <LoginWith />
       <FindUsOn />
+      <AsideAdvertisement />
     </div>
   );
 };
