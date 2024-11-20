@@ -4,7 +4,7 @@ import twitterLogo from "../assets/twitter.png";
 
 const FindUsOn = () => {
   return (
-    <div>
+    <div className="mb-8">
       <h2 className="text-xl text-[#403F3F] font-semibold mb-5">Find Us On</h2>
       <div>
         <div className="flex justify-start items-center gap-2 p-4 border rounded-t-md">

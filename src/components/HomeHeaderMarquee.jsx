@@ -4,7 +4,7 @@ const HomeHeaderMarquee = () => {
   return (
     <section className="bg-gray-100 flex mb-5">
       <div className="bg-red-600 flex items-center rounded-l-md">
-        <p className="text-white text-xl font-medium px-3">Latest</p>
+        <p className="text-white text-xl font-medium px-4">Latest</p>
       </div>
       <Marquee pauseOnHover={true} className="text-lg font-semibold py-2">
         <p>

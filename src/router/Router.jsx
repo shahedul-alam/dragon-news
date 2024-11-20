@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import App from "../layouts/App";
 import Homepage from "../pages/home/Homepage";
+import FullNewsPage from "../pages/news/FullNewsPage";
 
 
 const Router = () => {
@@ -21,8 +22,17 @@ const Router = () => {
           element: <Homepage />,
         },
         {
+          path: 'news/:id',
+          loader: ({ params }) => fetch(`https://openapi.programming-hero.com/api/news/${params.id}`),
+          element: <FullNewsPage />,
+        },
+        {
           path: '/about',
-          element: <h1>about page</h1>
+          element: <h1>About page</h1>
+        },
+        {
+          path: '/career',
+          element: <h1>Career page</h1>
         }
       ]
     }

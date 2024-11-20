@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const CategoryBtns = ({ category }) => {
   return (
@@ -10,7 +11,15 @@ const CategoryBtns = ({ category }) => {
   );
 };
 
-const AllCategoryBtns = ({ categoriesData }) => {
+const AllCategoryBtns = () => {
+  const [categoriesData, setCategoriesData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://openapi.programming-hero.com/api/news/categories")
+      .then((res) => res.json())
+      .then((data) => setCategoriesData(data.data.news_category));
+  }, []);
+
   return (
     <>
       <h2 className="text-xl text-[#403F3F] font-semibold mb-5">

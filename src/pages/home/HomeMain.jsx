@@ -34,7 +34,7 @@ const NewsCards = ({ news }) => {
         </div>
         <div className="mb-5">
           <p className="line-clamp-3 text-[#706F6F]">{news.details}</p>
-          <Link><span className="text-red-600 font-semibold">Read More</span></Link>
+          <Link to={`/news/${news._id}`}><span className="text-red-600 font-semibold">Read More</span></Link>
         </div>
         <div className="flex justify-between items-center pt-5 border-t border-[#E7E7E7]">
           <div className="flex items-center gap-2">
