@@ -2,6 +2,8 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import App from "../layouts/App";
 import Homepage from "../pages/home/Homepage";
 import FullNewsPage from "../pages/news/FullNewsPage";
+import AboutUs from "../pages/AboutUs";
+import Career from "../pages/Career";
 
 
 const Router = () => {
@@ -28,11 +30,11 @@ const Router = () => {
         },
         {
           path: '/about',
-          element: <h1>About page</h1>
+          element: <AboutUs />,
         },
         {
           path: '/career',
-          element: <h1>Career page</h1>
+          element: <Career />,
         }
       ]
     }
