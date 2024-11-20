@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+a.active {
+  color: red;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
 .category-btn-container a.active > button {
   background-color: #E7E7E7;
   color: #403F3F;

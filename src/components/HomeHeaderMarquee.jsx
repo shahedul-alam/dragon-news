@@ -19,7 +19,7 @@ const HomeHeaderMarquee = () => {
       <Marquee pauseOnHover={true} className="text-lg font-semibold py-2">
         <div>
           {
-            breakingNews.map(news => <Link to={`/news/${news._id}`}> {news.title} |</Link>)
+            breakingNews.map(news => <Link key={news._id} to={`/news/${news._id}`}> {news.title} |</Link>)
           }
         </div>
       </Marquee>

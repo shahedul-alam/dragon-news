@@ -1,22 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 const Navbar = () => {
+  const {id} = useParams();
+
   return (
     <nav className="flex justify-between items-center">
       <div className=""></div>
       <div className="flex gap-4 text-lg">
-        <NavLink to="/">
-          <span className="hover:text-red-600 hover:font-medium hover:underline">
+        <NavLink to={id ? `category/${id}` : 'category/01'}>
+          <span className="hover:font-medium hover:underline">
             Home
           </span>
         </NavLink>
         <NavLink to="/about">
-          <span className="hover:text-red-600 hover:font-medium hover:underline">
+          <span className="hover:font-medium hover:underline">
             About
           </span>
         </NavLink>
         <NavLink to="/career">
-          <span className="hover:text-red-600 hover:font-medium hover:underline">
+          <span className="hover:font-medium hover:underline">
             Career
           </span>
         </NavLink>

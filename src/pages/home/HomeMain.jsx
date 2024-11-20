@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { FaStar, FaRegStar, FaEye } from "react-icons/fa";
 import Rating from "react-rating";
+import NoNewsFound from "../../components/NoNewsFound";
 
 const NewsCards = ({ news }) => {
   return (
@@ -30,11 +31,17 @@ const NewsCards = ({ news }) => {
       <div className="p-5">
         <h1 className="text-xl font-bold text-[#403F3F] mb-5">{news.title}</h1>
         <div className="mb-8">
-          <img src={news.image_url} alt="news thumbnail" className="size-full" />
+          <img
+            src={news.image_url}
+            alt="news thumbnail"
+            className="size-full"
+          />
         </div>
         <div className="mb-5">
           <p className="line-clamp-3 text-[#706F6F]">{news.details}</p>
-          <Link to={`/news/${news._id}`}><span className="text-red-600 font-semibold">Read More</span></Link>
+          <Link to={`/news/${news._id}`}>
+            <span className="text-red-600 font-semibold">Read More</span>
+          </Link>
         </div>
         <div className="flex justify-between items-center pt-5 border-t border-[#E7E7E7]">
           <div className="flex items-center gap-2">
@@ -64,11 +71,15 @@ const HomeMain = () => {
       <h2 className="text-[#403F3F] text-xl font-semibold  mb-5">
         Dragon News Home
       </h2>
-      <div className="space-y-6">
-        {newsData.map((news) => (
-          <NewsCards key={news._id} news={news} />
-        ))}
-      </div>
+      {newsData.length !== 0 ? (
+        <div className="space-y-6">
+          {newsData.map((news) => (
+            <NewsCards key={news._id} news={news} />
+          ))}
+        </div>
+      ) : (
+        <NoNewsFound />
+      )}
     </section>
   );
 };
