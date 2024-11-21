@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="flex justify-between items-center">
       <div className=""></div>
       <div className="flex gap-4 text-lg">
-        <NavLink to={id ? `category/${id}` : 'category/01'}>
+        <NavLink to={id ? `/category/${id}` : '/category/01'}>
           <span className="hover:font-medium hover:underline">
             Home
           </span>

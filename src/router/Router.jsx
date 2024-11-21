@@ -4,6 +4,8 @@ import Homepage from "../pages/home/Homepage";
 import FullNewsPage from "../pages/news/FullNewsPage";
 import AboutUs from "../pages/AboutUs";
 import Career from "../pages/Career";
+import SignIn from "../pages/SignIn";
+import SignOut from "../pages/SignUp";
 
 
 const Router = () => {
@@ -36,7 +38,15 @@ const Router = () => {
           path: '/career',
           element: <Career />,
         }
-      ]
+      ],
+    },
+    {
+      path: '/signIn',
+      element: <SignIn />,
+    },
+    {
+      path: '/signUp',
+      element: <SignOut />,
     }
   ]);
   

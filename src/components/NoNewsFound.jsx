@@ -5,7 +5,7 @@ const NoNewsFound = () => {
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">No news found!</h1>
           <p className="py-6">
-            Please check other categories.
+            Please check other categories
           </p>
         </div>
       </div>

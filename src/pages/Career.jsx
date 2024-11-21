@@ -1,6 +1,6 @@
 const Career = () => {
   return (
-    <div className="hero bg-base-200 min-h-screen container mx-auto mb-20 rounded-md">
+    <div className="hero bg-base-200 min-h-screen container mx-auto mb-20 rounded-md font-poppins">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">Career Page</h1>
