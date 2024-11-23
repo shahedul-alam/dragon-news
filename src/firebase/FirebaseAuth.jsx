@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { auth } from "./firebase.config";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 
 export const AuthContext = createContext();
@@ -34,7 +34,11 @@ const FirebaseAuth = ({ children }) => {
 
   const updateUserProfile = (userInfo) => {
     return updateProfile(auth.currentUser, {...userInfo});
-  }
+  };
+
+  const resetUserPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
 
   function successNotify(message) {
     toast.success(message, {
@@ -72,6 +76,7 @@ const FirebaseAuth = ({ children }) => {
     signInUser,
     signOutUser,
     updateUserProfile,
+    resetUserPassword,
     successNotify,
     errorNotify,
   };

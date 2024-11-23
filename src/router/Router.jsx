@@ -7,6 +7,7 @@ import Career from "../pages/Career";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import PrivateRoute from "./PrivateRoute";
+import ForgotPassword from "../pages/ForgotPassword";
 
 
 const Router = () => {
@@ -48,6 +49,10 @@ const Router = () => {
     {
       path: '/signUp',
       element: <SignUp />,
+    },
+    {
+      path: '/resetPassword',
+      element: <ForgotPassword />,
     }
   ]);
   

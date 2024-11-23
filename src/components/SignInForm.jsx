@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/FirebaseAuth";
 
 const SignInForm = () => {
-  const {signInUser, successNotify, errorNotify} = useContext(AuthContext);
+  const {signInUser, resetUserPassword, successNotify, errorNotify} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSignInUser = (e) => {
@@ -56,9 +56,9 @@ const SignInForm = () => {
                 required
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+                <Link className="label-text-alt link link-hover" to={'/resetPassword'}>
                   Forgot password?
-                </a>
+                </Link>
               </label>
             </div>
             <div className="form-control mt-6">
