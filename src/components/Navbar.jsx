@@ -1,7 +1,23 @@
-import { NavLink, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../firebase/FirebaseAuth";
+import demoUser from "../assets/user.png";
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {id} = useParams();
+
+  const handleSignOutUser = () => {
+    signOutUser()
+    .then(() => {
+      console.log('logout successfully');
+      navigate('/signIn');
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  };
 
   return (
     <nav className="flex justify-between items-center">
@@ -26,14 +42,20 @@ const Navbar = () => {
       <div className="flex gap-2">
         <div>
           <img
-            src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D"
+            src={user ? user.photoURL : demoUser}
             alt="User's profile picture"
             className="size-12 object-cover rounded-full"
           />
         </div>
-        <button className="bg-red-600 px-6 text-xl font-semibold text-white rounded-md">
-          Login
-        </button>
+        {
+          user ? 
+          <button className="flex items-center justify-center bg-red-600 px-6 text-xl font-semibold text-white rounded-md" onClick={handleSignOutUser}>
+            Logout
+          </button> :
+          <Link className="flex items-center justify-center bg-red-600 px-6 text-xl font-semibold text-white rounded-md" to={'/signIn'}>
+            Login
+          </Link>
+        }
       </div>
     </nav>
   );

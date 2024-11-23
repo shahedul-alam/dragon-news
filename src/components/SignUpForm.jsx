@@ -25,8 +25,6 @@ const SignUpForm = () => {
         console.log(error.message);
       });
 
-      setUser(userCredential);
-
       e.target.reset();
 
       navigate('/category/01');
