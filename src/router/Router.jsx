@@ -5,7 +5,7 @@ import FullNewsPage from "../pages/news/FullNewsPage";
 import AboutUs from "../pages/AboutUs";
 import Career from "../pages/Career";
 import SignIn from "../pages/SignIn";
-import SignOut from "../pages/SignUp";
+import SignUp from "../pages/SignUp";
 
 
 const Router = () => {
@@ -46,7 +46,7 @@ const Router = () => {
     },
     {
       path: '/signUp',
-      element: <SignOut />,
+      element: <SignUp />,
     }
   ]);
   
