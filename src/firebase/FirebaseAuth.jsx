@@ -7,10 +7,12 @@ export const AuthContext = createContext();
 
 const FirebaseAuth = ({ children }) => {
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
 
     return () => {
@@ -64,6 +66,7 @@ const FirebaseAuth = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
     setUser,
     createUser,
     signInUser,

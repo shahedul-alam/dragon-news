@@ -20,7 +20,6 @@ const SignInForm = () => {
       navigate('/category/01');
     })
     .catch((error) => {
-      console.log(error.message);
       errorNotify(error.message);
     });
   };

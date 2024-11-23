@@ -6,6 +6,7 @@ import AboutUs from "../pages/AboutUs";
 import Career from "../pages/Career";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 
 const Router = () => {
@@ -28,7 +29,7 @@ const Router = () => {
         {
           path: 'news/:id',
           loader: ({ params }) => fetch(`https://openapi.programming-hero.com/api/news/${params.id}`),
-          element: <FullNewsPage />,
+          element: <PrivateRoute><FullNewsPage /></PrivateRoute>,
         },
         {
           path: '/about',
