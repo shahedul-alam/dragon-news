@@ -3,7 +3,7 @@ import { AuthContext } from "../firebase/FirebaseAuth";
 import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
-  const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, successNotify, errorNotify } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleCreateUser = (e) => {
@@ -15,14 +15,14 @@ const SignUpForm = () => {
 
     createUser(email, password)
     .then((userCredential) => {
-      console.log('user created successfully');
+      successNotify('Register successfully');
 
       updateUserProfile({displayName, photoURL})
       .then(() => {
-        console.log('profile updated successfully');
+        successNotify('Profile updated successfully');
       })
       .catch((error) => {
-        console.log(error.message);
+        errorNotify(error.message);
       });
 
       e.target.reset();
@@ -30,7 +30,7 @@ const SignUpForm = () => {
       navigate('/category/01');
     })
     .catch((error) => {
-      console.log(error.message);
+      errorNotify(error.message);
     });
   };
 

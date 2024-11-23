@@ -1,6 +1,30 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../firebase/FirebaseAuth";
 
 const SignInForm = () => {
+  const {signInUser, successNotify, errorNotify} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSignInUser = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInUser(email, password)
+    .then((userCredential) => {
+      successNotify('Login successfully');
+
+      e.target.reset();
+
+      navigate('/category/01');
+    })
+    .catch((error) => {
+      console.log(error.message);
+      errorNotify(error.message);
+    });
+  };
+
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col gap-12">
@@ -8,14 +32,15 @@ const SignInForm = () => {
           <h1 className="text-5xl font-bold">Login your account!</h1>
         </div>
         <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
-          <form className="card-body">
+          <form className="card-body" onSubmit={handleSignInUser}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
-                placeholder="e.g. Shahedul Alam"
+                name="email"
+                placeholder="e.g. shaheedalamcontact@gmail.com"
                 className="input input-bordered"
                 required
               />
@@ -26,6 +51,7 @@ const SignInForm = () => {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="e.g. samuRai20!"
                 className="input input-bordered"
                 required
