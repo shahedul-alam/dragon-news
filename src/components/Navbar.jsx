@@ -49,7 +49,7 @@ const Navbar = () => {
         </div>
         {
           user ? 
-          <button className="flex items-center justify-center bg-red-600 px-6 text-xl font-semibold text-white rounded-md" onClick={handleSignOutUser}>
+          <button className="flex items-center justify-center bg-green-600 px-6 text-xl font-semibold text-white rounded-md" onClick={handleSignOutUser}>
             Logout
           </button> :
           <Link className="flex items-center justify-center bg-red-600 px-6 text-xl font-semibold text-white rounded-md" to={'/signIn'}>
