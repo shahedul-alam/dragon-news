@@ -4,15 +4,25 @@ import { useContext } from "react";
 import { AuthContext } from "../firebase/FirebaseAuth";
 
 const LoginWith = () => {
-  const {logInWithGoogle} = useContext(AuthContext);
+  const {user, logInWithGoogle, logInWithGithub, successNotify, errorNotify} = useContext(AuthContext);
 
   const handleLoginWithGoogle = () => {
     logInWithGoogle()
     .then((result) => {
-      console.log(result);
+      successNotify('login with Google successfully!');
     })
     .catch((error) => {
-      console.log(error.message);
+      errorNotify(error.message);
+    });
+  };
+
+  const handleLoginWithGithub = () => {
+    logInWithGithub()
+    .then((result) => {
+      successNotify('login with Github successfully!');
+    })
+    .catch((error) => {
+      errorNotify(error.message);
     });
   };
 
@@ -23,7 +33,7 @@ const LoginWith = () => {
         <button className="w-full flex justify-center items-center gap-2 py-4 rounded-md bg-red-600 text-white text-lg font-medium border" onClick={handleLoginWithGoogle}>
           <FaGoogle className="text-xl" /> Login with Google
         </button>
-        <button className="w-full flex justify-center items-center gap-2 py-4 rounded-md bg-stone-800 text-white text-lg font-medium border">
+        <button className="w-full flex justify-center items-center gap-2 py-4 rounded-md bg-stone-800 text-white text-lg font-medium border" onClick={handleLoginWithGithub}>
           <FaGithub className="text-xl" /> Login with Github
         </button>
       </div>

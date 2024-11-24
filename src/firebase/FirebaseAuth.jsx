@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { auth } from "./firebase.config";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 
 export const AuthContext = createContext();
@@ -46,6 +46,12 @@ const FirebaseAuth = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  const logInWithGithub = () => {
+    const provider = new GithubAuthProvider();
+
+    return signInWithPopup(auth, provider);
+  };
+
   function successNotify(message) {
     toast.success(message, {
       position: "top-center",
@@ -81,6 +87,7 @@ const FirebaseAuth = ({ children }) => {
     createUser,
     signInUser,
     logInWithGoogle,
+    logInWithGithub,
     signOutUser,
     updateUserProfile,
     resetUserPassword,
